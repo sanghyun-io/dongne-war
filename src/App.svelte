@@ -5,19 +5,28 @@
 
   const KAKAO_JS_KEY = '' // developers.kakao.com에서 발급받은 JavaScript 키
 
-  // 상태: landing → selecting_city → selecting_district → result
+  // 상태: landing → selecting_city → selecting_district → selecting_dong → result
   let phase = $state('landing')
   let selectedCity = $state('')
   let selectedDistrict = $state('')
+  let selectedDong = $state('')
 
   // URL 파라미터로 바로 결과 진입
   function checkUrlParams() {
     const params = new URLSearchParams(window.location.search)
     const city = params.get('city')
     const district = params.get('district')
-    if (city && district && districtData[city]?.[district]) {
+    const dong = params.get('dong')
+    if (city && district && dong && districtData[city]?.[district]?.[dong]) {
       selectedCity = city
       selectedDistrict = district
+      selectedDong = dong
+      phase = 'result'
+    } else if (city && district && districtData[city]?.[district]) {
+      // dong 없이 시군구까지만 → 시군구 _total 표시
+      selectedCity = city
+      selectedDistrict = district
+      selectedDong = '_total'
       phase = 'result'
     }
   }
@@ -41,35 +50,66 @@
 
   function selectDistrict(district) {
     selectedDistrict = district
+    phase = 'selecting_dong'
+  }
+
+  function selectDong(dong) {
+    selectedDong = dong
     phase = 'result'
     const url = new URL(window.location)
     url.searchParams.set('city', selectedCity)
-    url.searchParams.set('district', district)
+    url.searchParams.set('district', selectedDistrict)
+    url.searchParams.set('dong', dong)
     history.replaceState({}, '', url)
   }
 
   function reset() {
     selectedCity = ''
     selectedDistrict = ''
+    selectedDong = ''
     phase = 'landing'
     const url = new URL(window.location)
     url.searchParams.delete('city')
     url.searchParams.delete('district')
+    url.searchParams.delete('dong')
     history.replaceState({}, '', url)
   }
 
   function goBackToCity() {
     selectedCity = ''
+    selectedDistrict = ''
     phase = 'selecting_city'
+  }
+
+  function goBackToDistrict() {
+    selectedDong = ''
+    phase = 'selecting_district'
+  }
+
+  function goBackToDong() {
+    selectedDong = ''
+    phase = 'selecting_dong'
   }
 
   let cities = Object.keys(districtData).sort()
   let districts = $derived(
     selectedCity ? Object.keys(districtData[selectedCity]).sort() : []
   )
-  let currentData = $derived(
+  let dongs = $derived(
     selectedCity && selectedDistrict
-      ? districtData[selectedCity][selectedDistrict]
+      ? Object.keys(districtData[selectedCity][selectedDistrict])
+          .filter(d => d !== '_total')
+          .sort()
+      : []
+  )
+  let displayName = $derived(
+    selectedDong === '_total'
+      ? `${selectedCity} ${selectedDistrict}`
+      : `${selectedDistrict} ${selectedDong}`
+  )
+  let currentData = $derived(
+    selectedCity && selectedDistrict && selectedDong
+      ? districtData[selectedCity][selectedDistrict][selectedDong]
       : null
   )
 </script>
@@ -120,15 +160,37 @@
       </button>
     </section>
 
+  {:else if phase === 'selecting_dong'}
+    <section class="selector fade-in">
+      <h2>{selectedCity} {selectedDistrict}</h2>
+      <p class="selector-sub">동/읍/면을 선택하세요</p>
+      <button class="district-btn district-btn--total" onclick={() => selectDong('_total')}>
+        {selectedDistrict} 전체
+      </button>
+      <div class="district-grid">
+        {#each dongs as dong}
+          <button class="district-btn" onclick={() => selectDong(dong)}>
+            {dong}
+          </button>
+        {/each}
+      </div>
+      <button class="btn btn-ghost" onclick={goBackToDistrict}>
+        ← 구/군 다시 선택
+      </button>
+    </section>
+
   {:else if phase === 'result' && currentData}
     <section class="result fade-in">
-      <p class="result-location">{selectedCity} {selectedDistrict}</p>
+      <p class="result-location">{displayName}</p>
       <p class="result-sub">에는 이만큼의 가게가 있어요</p>
-      <Card city={selectedCity} district={selectedDistrict} data={currentData} />
+      <Card city={selectedCity} district={displayName} data={currentData} />
       <div class="result-actions">
-        <Share city={selectedCity} district={selectedDistrict} />
+        <Share city={selectedCity} district={displayName} dong={selectedDong} />
+        <button class="btn btn-ghost" onclick={goBackToDong}>
+          ← 다른 동 선택하기
+        </button>
         <button class="btn btn-ghost" onclick={reset}>
-          다른 동네 검색하기
+          처음부터 다시
         </button>
       </div>
     </section>

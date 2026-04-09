@@ -205,6 +205,19 @@ body {
   color: var(--bg);
 }
 
+.district-btn--total {
+  width: 100%;
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.district-btn--total:hover {
+  opacity: 0.85;
+}
+
 /* ── Share Buttons ─────────────────────────────────── */
 
 .share-row {

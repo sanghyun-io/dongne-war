@@ -1,7 +1,7 @@
 <script>
   import html2canvas from 'html2canvas-pro'
 
-  let { city, district } = $props()
+  let { city, district, dong = '' } = $props()
 
   async function saveImage() {
     const el = document.getElementById('capture-card')
@@ -17,7 +17,7 @@
         const url = URL.createObjectURL(blob)
         const a = document.createElement('a')
         a.href = url
-        a.download = `dongne-war-${district}.png`
+        a.download = `dongne-war-${district}${dong && dong !== '_total' ? '-' + dong : ''}.png`
         a.click()
         URL.revokeObjectURL(url)
       })
@@ -26,11 +26,16 @@
     }
   }
 
-  function copyLink() {
+  function buildShareUrl() {
     const url = new URL(window.location.origin)
     url.searchParams.set('city', city)
     url.searchParams.set('district', district)
-    navigator.clipboard.writeText(url.toString()).then(() => {
+    if (dong) url.searchParams.set('dong', dong)
+    return url.toString()
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText(buildShareUrl()).then(() => {
       linkCopied = true
       setTimeout(() => (linkCopied = false), 2000)
     })
@@ -38,11 +43,12 @@
 
   function shareKakao() {
     if (!window.Kakao?.isInitialized()) return
-    const shareUrl = `${window.location.origin}?city=${encodeURIComponent(city)}&district=${encodeURIComponent(district)}`
+    const shareUrl = buildShareUrl()
+    const displayName = dong && dong !== '_total' ? `${district} ${dong}` : district
     window.Kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
-        title: `${city} ${district} 동네전쟁`,
+        title: `${displayName} 동네전쟁`,
         description: '우리 동네 업종 대전! 치킨집 vs 카페 vs 편의점',
         imageUrl: 'https://dongne-war.gamja.top/og-image.png',
         link: {
