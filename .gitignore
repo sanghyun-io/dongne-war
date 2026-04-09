@@ -26,6 +26,7 @@ dist-ssr
 # Data files (raw CSV/Excel from data.go.kr)
 *.csv
 *.xlsx
+scripts/raw/
 
 # Environment
 .env
