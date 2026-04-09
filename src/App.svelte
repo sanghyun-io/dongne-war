@@ -2,6 +2,7 @@
   import districtData from './data/district_counts.json'
   import Card from './lib/Card.svelte'
   import Share from './lib/Share.svelte'
+  import { isAvailable, getPosition, reverseGeocode, matchLocation } from './lib/geolocation.js'
 
   const KAKAO_JS_KEY = '' // developers.kakao.com에서 발급받은 JavaScript 키
 
@@ -10,6 +11,8 @@
   let selectedCity = $state('')
   let selectedDistrict = $state('')
   let selectedDong = $state('')
+  let geoLoading = $state(false)
+  let geoError = $state('')
 
   // URL 파라미터로 바로 결과 진입
   function checkUrlParams() {
@@ -40,7 +43,43 @@
   })
 
   function startSelection() {
+    geoError = ''
     phase = 'selecting_city'
+  }
+
+  async function findMyLocation() {
+    geoLoading = true
+    geoError = ''
+    try {
+      const { lat, lng } = await getPosition()
+      const addr = await reverseGeocode(lat, lng)
+      const match = matchLocation(districtData, addr)
+
+      if (match.level === 'dong') {
+        selectedCity = match.city
+        selectedDistrict = match.district
+        selectedDong = match.dong
+        phase = 'result'
+        const url = new URL(window.location)
+        url.searchParams.set('city', match.city)
+        url.searchParams.set('district', match.district)
+        url.searchParams.set('dong', match.dong)
+        history.replaceState({}, '', url)
+      } else if (match.level === 'district') {
+        selectedCity = match.city
+        selectedDistrict = match.district
+        phase = 'selecting_dong'
+      } else if (match.level === 'city') {
+        selectedCity = match.city
+        phase = 'selecting_district'
+      } else {
+        geoError = '현재 위치의 데이터를 찾을 수 없습니다.'
+      }
+    } catch (e) {
+      geoError = e.message
+    } finally {
+      geoLoading = false
+    }
   }
 
   function selectCity(city) {
@@ -127,6 +166,14 @@
       <button class="btn btn-primary" onclick={startSelection}>
         내 동네 검색하기
       </button>
+      {#if isAvailable()}
+        <button class="btn btn-secondary btn-geo" onclick={findMyLocation} disabled={geoLoading}>
+          {geoLoading ? '위치 확인 중...' : '내 위치로 찾기'}
+        </button>
+      {/if}
+      {#if geoError}
+        <p class="geo-error">{geoError}</p>
+      {/if}
     </section>
 
   {:else if phase === 'selecting_city'}
@@ -233,6 +280,17 @@
     text-align: center;
     line-height: 1.6;
     margin-bottom: 12px;
+  }
+
+  .btn-geo {
+    font-size: 15px;
+    padding: 12px 24px;
+  }
+
+  .geo-error {
+    font-size: 13px;
+    color: #dc2626;
+    text-align: center;
   }
 
   .selector {
