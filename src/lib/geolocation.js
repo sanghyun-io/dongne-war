@@ -1,7 +1,5 @@
-const VWORLD_API_KEY = import.meta.env.VITE_VWORLD_API_KEY || ''
-
 export function isAvailable() {
-  return !!VWORLD_API_KEY && !!navigator.geolocation
+  return !!navigator.geolocation
 }
 
 export function getPosition() {
@@ -23,20 +21,7 @@ export function getPosition() {
 }
 
 export async function reverseGeocode(lat, lng) {
-  if (!VWORLD_API_KEY) throw new Error('브이월드 API 키가 설정되지 않았습니다.')
-
-  const url = new URL('https://api.vworld.kr/req/address')
-  url.searchParams.set('service', 'address')
-  url.searchParams.set('request', 'getAddress')
-  url.searchParams.set('version', '2.0')
-  url.searchParams.set('key', VWORLD_API_KEY)
-  url.searchParams.set('point', `${lng},${lat}`)
-  url.searchParams.set('crs', 'epsg:4326')
-  url.searchParams.set('type', 'BOTH')
-  url.searchParams.set('format', 'json')
-  url.searchParams.set('simple', 'false')
-
-  const res = await fetch(url)
+  const res = await fetch(`/geocode?lat=${lat}&lng=${lng}`)
   if (!res.ok) throw new Error('역지오코딩 요청에 실패했습니다.')
 
   const data = await res.json()
