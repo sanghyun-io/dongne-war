@@ -11,25 +11,29 @@ export async function onRequest(context) {
   }
 
   const apiKey = context.env.VWORLD_API_KEY
+  if (!apiKey) {
+    return new Response(JSON.stringify({ error: 'VWORLD_API_KEY not configured' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
 
-  const apiUrl = new URL('https://api.vworld.kr/req/address')
-  apiUrl.searchParams.set('service', 'address')
-  apiUrl.searchParams.set('request', 'getAddress')
-  apiUrl.searchParams.set('version', '2.0')
-  apiUrl.searchParams.set('key', apiKey)
-  apiUrl.searchParams.set('point', `${lng},${lat}`)
-  apiUrl.searchParams.set('crs', 'epsg:4326')
-  apiUrl.searchParams.set('type', 'BOTH')
-  apiUrl.searchParams.set('format', 'json')
-  apiUrl.searchParams.set('simple', 'false')
+  try {
+    const apiUrl = `https://api.vworld.kr/req/address?service=address&request=getAddress&version=2.0&key=${apiKey}&point=${lng},${lat}&crs=epsg:4326&type=BOTH&format=json&simple=false`
 
-  const res = await fetch(apiUrl.toString())
-  const data = await res.text()
+    const res = await fetch(apiUrl)
+    const data = await res.text()
 
-  return new Response(data, {
-    headers: {
-      'Content-Type': 'application/json',
-      'Cache-Control': 'public, max-age=86400',
-    },
-  })
+    return new Response(data, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'public, max-age=86400',
+      },
+    })
+  } catch (e) {
+    return new Response(JSON.stringify({ error: e.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
 }
