@@ -154,37 +154,29 @@
       "pharmacy": 28,
       "pcroom": 18
     },
-    "고양시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 2176,
-      "pharmacy": 496,
-      "pcroom": 268
-    },
     "고양시 덕양구": {
       "chicken": 267,
       "cafe": 708,
       "convenience": 408,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 975,
+      "pharmacy": 213,
+      "pcroom": 154
     },
     "고양시 일산동구": {
       "chicken": 164,
       "cafe": 729,
       "convenience": 322,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 690,
+      "pharmacy": 150,
+      "pcroom": 70
     },
     "고양시 일산서구": {
       "chicken": 154,
       "cafe": 401,
       "convenience": 223,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 511,
+      "pharmacy": 133,
+      "pcroom": 44
     },
     "과천시": {
       "chicken": 22,
@@ -250,37 +242,29 @@
       "pharmacy": 40,
       "pcroom": 45
     },
-    "부천시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 1680,
-      "pharmacy": 409,
-      "pcroom": 191
-    },
     "부천시 소사구": {
       "chicken": 136,
       "cafe": 296,
       "convenience": 190,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 427,
+      "pharmacy": 108,
+      "pcroom": 25
     },
     "부천시 오정구": {
       "chicken": 98,
       "cafe": 208,
       "convenience": 130,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 310,
+      "pharmacy": 76,
+      "pcroom": 44
     },
     "부천시 원미구": {
       "chicken": 279,
       "cafe": 835,
       "convenience": 368,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 943,
+      "pharmacy": 225,
+      "pcroom": 122
     },
     "부천시소사구": {
       "chicken": 0,
@@ -290,77 +274,61 @@
       "pharmacy": 0,
       "pcroom": 0
     },
-    "성남시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 2265,
-      "pharmacy": 540,
-      "pcroom": 225
-    },
     "성남시 분당구": {
       "chicken": 216,
       "cafe": 1026,
       "convenience": 400,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 1116,
+      "pharmacy": 286,
+      "pcroom": 46
     },
     "성남시 수정구": {
       "chicken": 134,
       "cafe": 447,
       "convenience": 250,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 626,
+      "pharmacy": 150,
+      "pcroom": 104
     },
     "성남시 중원구": {
       "chicken": 122,
       "cafe": 321,
       "convenience": 221,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
-    },
-    "수원시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 2599,
-      "pharmacy": 598,
-      "pcroom": 337
+      "realestate": 523,
+      "pharmacy": 104,
+      "pcroom": 75
     },
     "수원시 권선구": {
       "chicken": 243,
       "cafe": 516,
       "convenience": 341,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 687,
+      "pharmacy": 144,
+      "pcroom": 129
     },
     "수원시 영통구": {
       "chicken": 186,
       "cafe": 801,
       "convenience": 297,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 854,
+      "pharmacy": 164,
+      "pcroom": 49
     },
     "수원시 장안구": {
       "chicken": 180,
       "cafe": 487,
       "convenience": 243,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 495,
+      "pharmacy": 121,
+      "pcroom": 77
     },
     "수원시 팔달구": {
       "chicken": 146,
       "cafe": 717,
       "convenience": 267,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 563,
+      "pharmacy": 169,
+      "pcroom": 82
     },
     "시흥시": {
       "chicken": 364,
@@ -370,29 +338,21 @@
       "pharmacy": 190,
       "pcroom": 310
     },
-    "안산시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 1185,
-      "pharmacy": 301,
-      "pcroom": 436
-    },
     "안산시 단원구": {
       "chicken": 229,
       "cafe": 717,
       "convenience": 447,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 681,
+      "pharmacy": 180,
+      "pcroom": 222
     },
     "안산시 상록구": {
       "chicken": 245,
       "cafe": 428,
       "convenience": 386,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 504,
+      "pharmacy": 121,
+      "pcroom": 214
     },
     "안성시": {
       "chicken": 181,
@@ -402,29 +362,21 @@
       "pharmacy": 90,
       "pcroom": 116
     },
-    "안양시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 1324,
-      "pharmacy": 294,
-      "pcroom": 76
-    },
     "안양시 동안구": {
       "chicken": 179,
       "cafe": 665,
       "convenience": 288,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 839,
+      "pharmacy": 180,
+      "pcroom": 38
     },
     "안양시 만안구": {
       "chicken": 144,
       "cafe": 467,
       "convenience": 199,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 485,
+      "pharmacy": 114,
+      "pcroom": 38
     },
     "양주시": {
       "chicken": 213,
@@ -466,37 +418,29 @@
       "pharmacy": 100,
       "pcroom": 105
     },
-    "용인시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 2098,
-      "pharmacy": 421,
-      "pcroom": 249
-    },
     "용인시 기흥구": {
       "chicken": 224,
       "cafe": 664,
       "convenience": 362,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 728,
+      "pharmacy": 169,
+      "pcroom": 59
     },
     "용인시 수지구": {
       "chicken": 148,
       "cafe": 491,
       "convenience": 232,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 653,
+      "pharmacy": 150,
+      "pcroom": 39
     },
     "용인시 처인구": {
       "chicken": 216,
       "cafe": 667,
       "convenience": 438,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 717,
+      "pharmacy": 102,
+      "pcroom": 151
     },
     "용인시처인구": {
       "chicken": 0,
@@ -566,9 +510,41 @@
       "chicken": 611,
       "cafe": 1804,
       "convenience": 1240,
-      "realestate": 2483,
-      "pharmacy": 339,
-      "pcroom": 415
+      "realestate": 0,
+      "pharmacy": 0,
+      "pcroom": 0
+    },
+    "화성시 동탄구": {
+      "chicken": 0,
+      "cafe": 0,
+      "convenience": 0,
+      "realestate": 948,
+      "pharmacy": 135,
+      "pcroom": 85
+    },
+    "화성시 만세구": {
+      "chicken": 0,
+      "cafe": 0,
+      "convenience": 0,
+      "realestate": 812,
+      "pharmacy": 95,
+      "pcroom": 205
+    },
+    "화성시 병점구": {
+      "chicken": 0,
+      "cafe": 0,
+      "convenience": 0,
+      "realestate": 325,
+      "pharmacy": 58,
+      "pcroom": 68
+    },
+    "화성시 효행구": {
+      "chicken": 0,
+      "cafe": 0,
+      "convenience": 0,
+      "realestate": 398,
+      "pharmacy": 51,
+      "pcroom": 57
     }
   },
   "경상남도": {
@@ -668,53 +644,45 @@
       "pharmacy": 28,
       "pcroom": 12
     },
-    "창원시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 1832,
-      "pharmacy": 445,
-      "pcroom": 209
-    },
     "창원시 마산합포구": {
       "chicken": 161,
       "cafe": 418,
       "convenience": 167,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 292,
+      "pharmacy": 77,
+      "pcroom": 36
     },
     "창원시 마산회원구": {
       "chicken": 151,
       "cafe": 340,
       "convenience": 141,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 252,
+      "pharmacy": 87,
+      "pcroom": 30
     },
     "창원시 성산구": {
       "chicken": 212,
       "cafe": 579,
       "convenience": 245,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 598,
+      "pharmacy": 97,
+      "pcroom": 46
     },
     "창원시 의창구": {
       "chicken": 173,
       "cafe": 449,
       "convenience": 201,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 427,
+      "pharmacy": 109,
+      "pcroom": 50
     },
     "창원시 진해구": {
       "chicken": 175,
       "cafe": 428,
       "convenience": 199,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 263,
+      "pharmacy": 75,
+      "pcroom": 47
     },
     "통영시": {
       "chicken": 115,
@@ -926,29 +894,21 @@
       "pharmacy": 45,
       "pcroom": 125
     },
-    "포항시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 864,
-      "pharmacy": 237,
-      "pcroom": 203
-    },
     "포항시 남구": {
       "chicken": 231,
       "cafe": 654,
       "convenience": 266,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 298,
+      "pharmacy": 103,
+      "pcroom": 119
     },
     "포항시 북구": {
       "chicken": 235,
       "cafe": 764,
       "convenience": 279,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 566,
+      "pharmacy": 134,
+      "pcroom": 84
     },
     "포항시남구": {
       "chicken": 0,
@@ -1458,21 +1418,13 @@
     }
   },
   "세종특별자치시": {
-    "세종시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 1070,
-      "pharmacy": 161,
-      "pcroom": 57
-    },
     "세종특별자치시": {
       "chicken": 262,
       "cafe": 821,
       "convenience": 320,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 1070,
+      "pharmacy": 161,
+      "pcroom": 57
     }
   },
   "울산광역시": {
@@ -1866,29 +1818,21 @@
       "pharmacy": 9,
       "pcroom": 2
     },
-    "전주시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 1612,
-      "pharmacy": 411,
-      "pcroom": 242
-    },
     "전주시 덕진구": {
       "chicken": 274,
       "cafe": 738,
       "convenience": 351,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 812,
+      "pharmacy": 183,
+      "pcroom": 134
     },
     "전주시 완산구": {
       "chicken": 258,
       "cafe": 1061,
       "convenience": 321,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 800,
+      "pharmacy": 228,
+      "pcroom": 108
     },
     "정읍시": {
       "chicken": 73,
@@ -2014,29 +1958,21 @@
       "pharmacy": 38,
       "pcroom": 42
     },
-    "천안시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 1635,
-      "pharmacy": 312,
-      "pcroom": 472
-    },
     "천안시 동남구": {
       "chicken": 218,
       "cafe": 654,
       "convenience": 373,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 505,
+      "pharmacy": 137,
+      "pcroom": 173
     },
     "천안시 서북구": {
       "chicken": 348,
       "cafe": 744,
       "convenience": 521,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 1130,
+      "pharmacy": 175,
+      "pcroom": 299
     },
     "청양군": {
       "chicken": 27,
@@ -2136,45 +2072,37 @@
       "pharmacy": 41,
       "pcroom": 74
     },
-    "청주시": {
-      "chicken": 0,
-      "cafe": 0,
-      "convenience": 0,
-      "realestate": 1729,
-      "pharmacy": 404,
-      "pcroom": 524
-    },
     "청주시 상당구": {
       "chicken": 149,
       "cafe": 505,
       "convenience": 199,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 296,
+      "pharmacy": 96,
+      "pcroom": 99
     },
     "청주시 서원구": {
       "chicken": 158,
       "cafe": 387,
       "convenience": 197,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 346,
+      "pharmacy": 96,
+      "pcroom": 87
     },
     "청주시 청원구": {
       "chicken": 171,
       "cafe": 390,
       "convenience": 281,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 333,
+      "pharmacy": 76,
+      "pcroom": 118
     },
     "청주시 흥덕구": {
       "chicken": 252,
       "cafe": 571,
       "convenience": 378,
-      "realestate": 0,
-      "pharmacy": 0,
-      "pcroom": 0
+      "realestate": 754,
+      "pharmacy": 136,
+      "pcroom": 220
     },
     "청주시서원구": {
       "chicken": 0,

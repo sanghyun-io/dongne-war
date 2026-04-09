@@ -31,6 +31,14 @@ SANGGA_CATEGORY_MAP = {
     "편의점": "convenience",
 }
 
+# ── 시+구 구조 도시 (주소 파싱 시 3단계 필요) ──────────────────────
+# "경기도 고양시 덕양구 ..." → 시도=경기도, 시군구=고양시 덕양구
+SI_GU_CITIES = {
+    "고양시", "수원시", "성남시", "안양시", "안산시", "용인시",
+    "부천시", "시흥시", "화성시", "청주시", "천안시", "전주시",
+    "포항시", "창원시", "김해시", "진주시",
+}
+
 # ── 부동산/약국/PC방: 영업중 필터 값 ─────────────────────────────
 ACTIVE_STATUS = {
     "realestate": {"영업중"},
@@ -85,17 +93,28 @@ def read_csv_rows(filepath: Path, encoding: str | None = None):
 
 
 def parse_sido_sigungu_from_address(address: str) -> tuple[str, str] | None:
-    """주소 문자열에서 시도/시군구 파싱"""
+    """주소 문자열에서 시도/시군구 파싱
+
+    "경기도 고양시 덕양구 ..." → ("경기도", "고양시 덕양구")
+    "서울특별시 강남구 ..."     → ("서울특별시", "강남구")
+    """
     if not address or not address.strip():
         return None
     parts = address.strip().split()
     if len(parts) < 2:
         return None
     sido = parts[0]
-    sigungu = parts[1]
-    # 세종특별자치시 예외
+
+    # 세종특별자치시 예외 (시군구 없음)
     if "세종" in sido:
-        return sido, "세종시"
+        return sido, "세종특별자치시"
+
+    sigungu = parts[1]
+
+    # 시+구 구조 도시: "고양시 덕양구" → 합쳐서 시군구로
+    if sigungu in SI_GU_CITIES and len(parts) >= 3 and parts[2].endswith("구"):
+        sigungu = f"{sigungu} {parts[2]}"
+
     return sido, sigungu
 
 
